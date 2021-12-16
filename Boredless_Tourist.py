@@ -10,3 +10,7 @@ def get_destination_index(destination):
 def get_traveler_location(traveler):
     traveler_destination = test_traveler[1]
     return traveler_destination_index
+
+# print(get_destination_index('Los Angeles, USA'))
+# destinations.index('Los Angeles, USA')
+print(destinations)
