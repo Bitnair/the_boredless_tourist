@@ -9,8 +9,11 @@ def get_destination_index(destination):
 
 def get_traveler_location(traveler):
     traveler_destination = test_traveler[1]
+    traveler_destination_index = get_destination_index(traveler_destination)
     return traveler_destination_index
+    
+test_destination_index = get_traveler_location(test_traveler[1])
 
-# print(get_destination_index('Los Angeles, USA'))
-# destinations.index('Los Angeles, USA')
-print(destinations)
+#Use traveler_destination along with get_destination_index() to retrieve the index of the destination 
+# where the traveler is. Save the index of the traveler’s destination into the 
+# variable traveler_destination_index.
