@@ -1,17 +1,10 @@
 destinations = ["Paris, France", "Shanghai, China", "Los Angeles, USA", "São Paulo, Brazil", "Cairo, Egypt"]
 test_traveler = ['Erin Wilkes', 'Shanghai, China', ['historical site', 'art']]
 attractions = []
-#attractions_2 = [attractions_2.append(destinations) for destination in destinations]
 
-#Create an attractions 2D list with destinations
-#for destination in destinations:
-#    attractions.append([destination])
-
-# Create an attractions empty 2D list
+# Create an empty 2D list for attractions
 for destination in destinations:
     attractions.append([])
-
-print(attractions)
 
 def get_destination_index(destination):
     destination_index = destinations.index(destination)
@@ -23,12 +16,25 @@ def get_traveler_location(traveler):
     return traveler_destination_index
 
 def add_attraction(destination, attraction):
-    get_destination_index(destination)
+    destination_index = get_destination_index(destination)
+    attractions_for_destination = attractions[destination_index].append(attraction)
+    if destination in destinations:
+        attractions_for_destination
+    else:
+        destinations.append(destination)
+        attractions_for_destination
+     
+#test_destination_index = get_traveler_location(test_traveler[1])
 
-#First we should attempt to find the index of the destination. 
-# Use get_destination_index() with the passed in destination in order to retrieve the 
-# index of the destination. Save the results into destination_index.
+add_attraction("Los Angeles, USA", ['Venice Beach', ['beach']])
+add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
+add_attraction("Paris, France", ["Arc de Triomphe", ["historical site", "monument"]])
+add_attraction("Shanghai, China", ["Yu Garden", ["garden", "historcical site"]])
+add_attraction("Shanghai, China", ["Yuz Museum", ["art", "museum"]])
+add_attraction("Shanghai, China", ["Oriental Pearl Tower", ["skyscraper", "viewing deck"]])
+add_attraction("Los Angeles, USA", ["LACMA", ["art", "museum"]])
+add_attraction("São Paulo, Brazil", ["São Paulo Zoo", ["zoo"]])
+add_attraction("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]])
+add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
+add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 
-
-test_destination_index = get_traveler_location(test_traveler[1])
-print(test_destination_index)

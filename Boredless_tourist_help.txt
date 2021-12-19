@@ -43,7 +43,8 @@ Create a list with the following destinations and save it into a variable called
 And let’s define a test traveler to see how our functionality is working so far.
 Create a test_traveler variable. Assign to it the following list:
 ['Erin Wilkes', 'Shanghai, China', ['historical site', 'art']]
-This is a traveler (a user of The Boredless Tourist application) whose name is Erin Wilkes who likes historical buildings and art. Erin is in China right now, hopefully we can find some good places to show her.
+This is a traveler (a user of The Boredless Tourist application) whose name is Erin Wilkes who likes historical buildings and art. 
+Erin is in China right now, hopefully we can find some good places to show her.
 
 6.
 Looks like we’ve got some good sample data to get started with. Let’s commit these changes.
@@ -56,7 +57,8 @@ Next, perform a git commit with the message "Added test objects".
 Travelling To Faraway Lands
 8.
 Now that we have test data for a traveler and a list of destinations that we can use, we can start building some of the Boredless Tourist‘s functionality.
-When a traveler arrives at a destination, we want to know where they are! Since we use lists for all of our data — we are going to identify each location based on its index in our destinations list. But we need to retrieve that index first.
+When a traveler arrives at a destination, we want to know where they are! Since we use lists for all of our data — we are going to identify 
+each location based on its index in our destinations list. But we need to retrieve that index first.
 Define a function called get_destination_index(). It should take a single parameter, destination, the destination as a string.
 
 9.
@@ -78,7 +80,8 @@ What happens if we call get_destination_index() with a destination not in our de
 Try it now: call get_destination_index() with the argument “Hyderabad, India”. What happens?
 
 14.
-If you used the .index() method to get the index of a destination from the list, you’ll notice that calling get_destination_index() with data that is missing from our destinations list will raise a ValueError.
+If you used the .index() method to get the index of a destination from the list, you’ll notice that calling get_destination_index() 
+with data that is missing from our destinations list will raise a ValueError.
 Don’t add any logic to avoid triggering this ValueError, it’s going to be useful for us in the future.
 
 15.
@@ -86,10 +89,12 @@ Now let’s define a function called get_traveler_location().
 get_traveler_location() is going to take a single parameter, traveler.
 
 16.
-In the body of get_traveler_location(), access the traveler’s destination string and save it into traveler_destination.
+In the body of get_traveler_location(), acess the traveler’s destination string and save it into traveler_destination.
 
 17.
-Use traveler_destination along with get_destination_index() to retrieve the index of the destination where the traveler is. Save the index of the traveler’s destination into the variable traveler_destination_index.
+Use traveler_destination along with get_destination_index() to retrieve the index of the destination 
+where the traveler is. Save the index of the traveler’s destination into the variable 
+traveler_destination_index.
 
 18.
 Make get_traveler_location() return the destination index of the traveler by returning traveler_destination_index.
@@ -121,67 +126,46 @@ Now we want to create and maintain a list of attractions. Let’s start by defin
 Stuck? Get a hint
 25.
 Actually, we want attractions to be an empty list for every destination in destinations. You can do this with this code:
-
 attractions = [[], [], [], [], []]
 But there are other ways to accomplish the same thing: by looping through destinations or with a list comprehension.
-
 Define attractions to be a list of 5 (one for each test destination) empty lists using a loop or list comprehension.
 
-
-Stuck? Get a hint
 26.
 Print out your attractions. Save, and then run your code by typing python3 script.py in the terminal.
-
 Does attractions look like:
-
 [[], [], [], [], []]
+
 27.
 Now let’s create a function called add_attraction(). This function should take two parameters: destination, the name of the location and attraction, the attraction.
 
 28.
 First we should attempt to find the index of the destination. Use get_destination_index() with the passed in destination in order to retrieve the index of the destination. Save the results into destination_index.
 
-29.
-This task is no longer necessary. It has been left blank so the project tasks stay aligned with the walkthrough video.
-
+29 and 30
+These tasks are no longer necessary. They had been left blank so the project tasks stay aligned with the walkthrough video.
 Move on to task 31.
 
-
-Stuck? Get a hint
-30.
-This task is no longer necessary. It has been left blank so the project tasks stay aligned with the walkthrough video.
-
-Move on to task 31.
-
-
-Stuck? Get a hint
 31.
-If the destination does exist, then we already have a list for it in attractions. Use the destination_index to find the appropriate list in attractions and save that list to attractions_for_destination.
+If the destination does exist, then we already have a list for it in attractions. 
+Use the destination_index to find the appropriate list in attractions and save that list 
+to attractions_for_destination.
 
-
-Stuck? Get a hint
 32.
 Append the attraction passed into add_attraction to the list attractions_for_destination.
-
 That’s all we want this function to do, so we can return after adding the attraction to the list.
 
 33.
 Try adding the following attraction:
-
 ['Venice Beach', ['beach']]
 To the “Los Angeles, USA” destination by calling add_attraction() with the two as arguments.
 
 34.
 Print out attractions. Then save and run your code with python3 script.py. Your print statement should render the following:
-
 [[], [], [['Venice Beach', ['beach']]], [], []]
 If it doesn’t something went wrong with add_attraction().
 
-
-Stuck? Get a hint
 35.
 Let’s add a few more interesting places to go, paste the following code to add a few more attractions:
-
 add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
 add_attraction("Paris, France", ["Arc de Triomphe", ["historical site", "monument"]])
 add_attraction("Shanghai, China", ["Yu Garden", ["garden", "historcical site"]])
@@ -192,52 +176,41 @@ add_attraction("São Paulo, Brazil", ["São Paulo Zoo", ["zoo"]])
 add_attraction("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]])
 add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
 add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
+
 36.
 Let’s add this change to our git repo. First add script.py to your git index.
 
 37.
 Then commit the changes with the message
-
 "Created attractions and functionality for adding new attractions"
 Finding the Best Places to Go
+
 38.
 We want to be able to help our traveler’s find the most interesting places in a new city for them. In order to do that we need to match their interests with the possible locations in a city.
-
 Write a function called find_attractions() that takes two parameters: destination, the name of the destination and interests, a list of interests.
 
 39.
 We’ll need the city’s destination_index to look up its attractions in our attractions table.
-
 Create a variable called destination_index and save the destination’s index to it using get_destination_index()
 
 40.
 Look up that destination’s attractions by indexing into attractions with destination_index. Save this into the variable attractions_in_city.
 
-
-Stuck? Get a hint
 41.
 Create a new list called attractions_with_interest. Make it empty when declaring it, we’ll save attractions into this list if they match one of our interests.
 
 42.
 Create a loop over attractions_in_city saving each item in the list into the temporary variable possible_attraction.
 
-
-Stuck? Get a hint
 43.
 For each attraction, retrieve the tagged information about it. The tags are all saved in the second place (index 1) in the attraction. In the body of the for loop, save the attraction’s tags into the variable attraction_tags.
 
-
-Stuck? Get a hint
 44.
 After retrieving the attraction tags, we want to see if any of the given interests are in attraction_tags. In order to do this, we’re going to loop through the interests and check if any of them are in attraction_tags.
-
 Create a for loop in the body of the current for loop to loop through each interest in interests.
 
-
-Stuck? Get a hint
 45.
 For every interest in interests, check if that interest is in attraction_tags.
-
 If the interest is in the attraction_tags, append possible_attraction to attractions_with_interest.
 
 46.
