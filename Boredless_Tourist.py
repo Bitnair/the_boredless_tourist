@@ -27,7 +27,20 @@ def add_attraction(destination, attraction):
         destinations.append(destination)
         attractions_for_destination
      
-
+def find_attractions(destination, interests):
+    destination_index = get_destination_index(destination)
+    attractions_in_city = attractions[destination_index] #returns attractions + tags
+    attractions_with_interest = [] #saved attractions matching our interests
+        
+    for attraction in attractions_in_city:
+        possible_attraction = attraction
+        attraction_tags = attraction[1]
+        
+        for interest in interests:
+            if interest in attraction_tags:
+                attractions_with_interest.append(possible_attraction[0])
+                
+    return attractions_with_interest
 
 add_attraction("Los Angeles, USA", ['Venice Beach', ['beach']])
 add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
@@ -42,24 +55,6 @@ add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical sit
 add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 
 
-def find_attractions(destination, interests):
-    destination_index = get_destination_index(destination)
-    attractions_in_city = attractions[destination_index] #returns attractions + tags
-    attractions_with_interest = [] #saved attractions matching our interests
-    possible_attraction = [] #individual attractions from the loop, initialy saved in attractions in city as [['ATTRACTION1', ['TAG1', 'TAG2']], ['ATTRACTION2', ['TAG1', 'TAG2']]]
-    attraction_tags = []  
-        
-    for attraction in attractions_in_city:
-        possible_attraction = attraction
-        attraction_tags = attraction[1]
-        
-        for interest in interests:
-            if interest in attraction_tags:
-                attractions_with_interest.append(possible_attraction[0])
-                
-    return attractions_with_interest
-
-
 ##TEST SECTION
 # These are the attractions included in attractions list
 # [[['the Louvre', ['art', 'museum']], ['Arc de Triomphe', ['historical site', 'monument']]], 
@@ -67,6 +62,6 @@ def find_attractions(destination, interests):
 # [['Venice Beach', ['beach']], ['LACMA', ['art', 'museum']]], 
 # [['São Paulo Zoo', ['zoo']], ['Pátio do Colégio', ['historical site']]], 
 # [['Pyramids of Giza', ['monument', 'historical site']], ['Egyptian Museum', ['museum']]]]
-
 la_arts = find_attractions("Los Angeles, USA", ['art'])
 print(la_arts)
+
