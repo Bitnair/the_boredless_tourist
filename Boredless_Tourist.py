@@ -1,10 +1,13 @@
 destinations = ["Paris, France", "Shanghai, China", "Los Angeles, USA", "São Paulo, Brazil", "Cairo, Egypt"]
 test_traveler = ['Erin Wilkes', 'Shanghai, China', ['historical site', 'art']]
 attractions = []
+#Structure of attractions 3D list [[['ATTRACTION1', ['TAG1', 'TAG2']], ['ATTRACTION2', ['TAG1', 'TAG2']]],
+#attractions_with_interest = []
 
 # Create an empty 2D list for attractions
 for destination in destinations:
     attractions.append([])
+
 
 def get_destination_index(destination):
     destination_index = destinations.index(destination)
@@ -24,7 +27,7 @@ def add_attraction(destination, attraction):
         destinations.append(destination)
         attractions_for_destination
      
-#test_destination_index = get_traveler_location(test_traveler[1])
+
 
 add_attraction("Los Angeles, USA", ['Venice Beach', ['beach']])
 add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
@@ -38,3 +41,32 @@ add_attraction("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]]
 add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
 add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 
+
+def find_attractions(destination, interests):
+    destination_index = get_destination_index(destination)
+    attractions_in_city = attractions[destination_index] #returns attractions + tags
+    attractions_with_interest = [] #saved attractions matching our interests
+    possible_attraction = [] #individual attractions from the loop, initialy saved in attractions in city as [['ATTRACTION1', ['TAG1', 'TAG2']], ['ATTRACTION2', ['TAG1', 'TAG2']]]
+    attraction_tags = []  
+        
+    for attraction in attractions_in_city:
+        possible_attraction = attraction
+        attraction_tags = attraction[1]
+        
+        for interest in interests:
+            if interest in attraction_tags:
+                attractions_with_interest.append(possible_attraction[0])
+                
+    return attractions_with_interest
+
+
+##TEST SECTION
+# These are the attractions included in attractions list
+# [[['the Louvre', ['art', 'museum']], ['Arc de Triomphe', ['historical site', 'monument']]], 
+# [['Yu Garden', ['garden', 'historcical site']], ['Yuz Museum', ['art', 'museum']], ['Oriental Pearl Tower', ['skyscraper', 'viewing deck']]], 
+# [['Venice Beach', ['beach']], ['LACMA', ['art', 'museum']]], 
+# [['São Paulo Zoo', ['zoo']], ['Pátio do Colégio', ['historical site']]], 
+# [['Pyramids of Giza', ['monument', 'historical site']], ['Egyptian Museum', ['museum']]]]
+
+la_arts = find_attractions("Los Angeles, USA", ['art'])
+print(la_arts)

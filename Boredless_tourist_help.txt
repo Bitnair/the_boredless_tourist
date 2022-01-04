@@ -160,7 +160,8 @@ Try adding the following attraction:
 To the “Los Angeles, USA” destination by calling add_attraction() with the two as arguments.
 
 34.
-Print out attractions. Then save and run your code with python3 script.py. Your print statement should render the following:
+Print out attractions. Then save and run your code with python3 script.py. 
+Your print statement should render the following:
 [[], [], [['Venice Beach', ['beach']]], [], []]
 If it doesn’t something went wrong with add_attraction().
 
@@ -183,50 +184,65 @@ Let’s add this change to our git repo. First add script.py to your git index.
 37.
 Then commit the changes with the message
 "Created attractions and functionality for adding new attractions"
-Finding the Best Places to Go
 
+
+Finding the Best Places to Go
 38.
-We want to be able to help our traveler’s find the most interesting places in a new city for them. In order to do that we need to match their interests with the possible locations in a city.
-Write a function called find_attractions() that takes two parameters: destination, the name of the destination and interests, a list of interests.
+We want to be able to help our traveler’s find the most interesting places in a new city 
+for them. In order to do that we need to match their interests with the possible locations 
+in a city.
+Write a function called find_attractions() that takes two parameters: 
+destination, the name of the destination and interests, a list of interests.
 
 39.
 We’ll need the city’s destination_index to look up its attractions in our attractions table.
-Create a variable called destination_index and save the destination’s index to it using get_destination_index()
+Create a variable called destination_index and save the destination’s index to it 
+using get_destination_index()
 
 40.
-Look up that destination’s attractions by indexing into attractions with destination_index. Save this into the variable attractions_in_city.
+Look up that destination’s attractions by indexing into attractions with destination_index. 
+Save this into the variable attractions_in_city.
 
 41.
-Create a new list called attractions_with_interest. Make it empty when declaring it, we’ll save attractions into this list if they match one of our interests.
+Create a new list called attractions_with_interest. 
+Make it empty when declaring it, we’ll save attractions into this list if they 
+match one of our interests.
 
 42.
-Create a loop over attractions_in_city saving each item in the list into the temporary variable possible_attraction.
+Create a loop over attractions_in_city saving each item in the list into the temporary 
+variable possible_attraction.
 
 43.
-For each attraction, retrieve the tagged information about it. The tags are all saved in the second place (index 1) in the attraction. In the body of the for loop, save the attraction’s tags into the variable attraction_tags.
+For each attraction, retrieve the tagged information about it. The tags are all saved in 
+the second place (index 1) in the attraction. 
+In the body of the for loop, save the attraction’s tags into the variable attraction_tags.
 
 44.
-After retrieving the attraction tags, we want to see if any of the given interests are in attraction_tags. In order to do this, we’re going to loop through the interests and check if any of them are in attraction_tags.
-Create a for loop in the body of the current for loop to loop through each interest in interests.
+After retrieving the attraction tags, we want to see if any of the given interests are in 
+attraction_tags. 
+In order to do this, we’re going to loop through the interests and check 
+if any of them are in attraction_tags.
+Create a for loop in the body of the current for loop to loop through each interest in 
+interests.
 
 45.
 For every interest in interests, check if that interest is in attraction_tags.
-If the interest is in the attraction_tags, append possible_attraction to attractions_with_interest.
+If the interest is in the attraction_tags, append possible_attraction to 
+attractions_with_interest.
 
 46.
-At the end of your function, return attractions_with_interest. Remember to unindent so you don’t accidentally return before both the for loops finish running!
+At the end of your function, return attractions_with_interest. 
+Remember to unindent so you don’t accidentally return before both the for loops finish running!
 
 47.
-Let’s test out our function! Call find_attractions() with "Los Angeles, USA" and ['art'] as the two arguments and save the results to la_arts.
+Let’s test out our function! Call find_attractions() with 
+"Los Angeles, USA" and ['art'] as the two arguments and save the results to la_arts.
 
 48.
 Print out la_arts.
+Save, and run your code by typing python3 script.py in the terminal. 
+It should have returned the following: ['LACMA', ['art', 'museum']]
 
-Save, and run your code by typing python3 script.py in the terminal. It should have returned the following:
-
-['LACMA', ['art', 'museum']]
-
-Stuck? Get a hint
 49.
 We don’t want to show the tags to our users when we recommend things to them, so let’s just append the name of each attraction.
 
