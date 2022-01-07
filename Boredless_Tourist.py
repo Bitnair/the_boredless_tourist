@@ -46,6 +46,8 @@ def get_attractions_for_traveler(traveler):
     traveler_attractions = find_attractions(traveler_destination, traveler_interests)
     interests_string = 'Hi ' + traveler[0] + ", we think you'll like these places around "
     
+    for attraction in traveler_attractions:
+        
 
 add_attraction("Los Angeles, USA", ['Venice Beach', ['beach']])
 add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
