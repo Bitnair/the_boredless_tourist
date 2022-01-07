@@ -1,8 +1,7 @@
 destinations = ["Paris, France", "Shanghai, China", "Los Angeles, USA", "São Paulo, Brazil", "Cairo, Egypt"]
 test_traveler = ['Erin Wilkes', 'Shanghai, China', ['historical site', 'art']]
 attractions = []
-#Structure of attractions 3D list [[['ATTRACTION1', ['TAG1', 'TAG2']], ['ATTRACTION2', ['TAG1', 'TAG2']]],
-#attractions_with_interest = []
+#Structure of attractions list [[['ATTRACTION1', ['TAG1', 'TAG2']], ['ATTRACTION2', ['TAG1', 'TAG2']]],
 
 # Create an empty 2D list for attractions
 for destination in destinations:
@@ -46,7 +45,6 @@ def get_attractions_for_traveler(traveler):
     traveler_attractions = find_attractions(traveler_destination, traveler_interests)
     interests_string = 'Hi ' + traveler[0] + ", we think you'll like these places around " + traveler_destination + ': '
 
-    # "Hi Dorothy Bortman, we think you'll like these places around Seattle, USA: the SAM, the Pike Place Market."
     for i in range(len(traveler_attractions)):
         if traveler_attractions[-1] == traveler_attractions[i]:
             interests_string += 'the' + traveler_attractions[i] + '.'
@@ -68,6 +66,3 @@ add_attraction("São Paulo, Brazil", ["São Paulo Zoo", ["zoo"]])
 add_attraction("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]])
 add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
 add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
-
-
-##TEST SECTION
