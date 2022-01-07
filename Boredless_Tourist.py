@@ -44,10 +44,18 @@ def get_attractions_for_traveler(traveler):
     traveler_destination = traveler[1]
     traveler_interests = traveler[2]
     traveler_attractions = find_attractions(traveler_destination, traveler_interests)
-    interests_string = 'Hi ' + traveler[0] + ", we think you'll like these places around "
-    
-    for attraction in traveler_attractions:
-        
+    interests_string = 'Hi ' + traveler[0] + ", we think you'll like these places around " + traveler_destination + ': '
+
+    # "Hi Dorothy Bortman, we think you'll like these places around Seattle, USA: the SAM, the Pike Place Market."
+    for i in range(len(traveler_attractions)):
+        if traveler_attractions[-1] == traveler_attractions[i]:
+            interests_string += 'the' + traveler_attractions[i] + '.'
+        else:
+            interests_string += 'the' + traveler_attractions[i] + ','
+    return interests_string
+
+smills_france = get_attractions_for_traveler(['Dereck Smill', 'Paris, France', ['monument']])
+print(smills_france)
 
 add_attraction("Los Angeles, USA", ['Venice Beach', ['beach']])
 add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
@@ -62,18 +70,4 @@ add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical sit
 add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 
 
-
-
 ##TEST SECTION
-# These are the attractions included in attractions list
-# [[['the Louvre', ['art', 'museum']], ['Arc de Triomphe', ['historical site', 'monument']]], 
-# [['Yu Garden', ['garden', 'historcical site']], ['Yuz Museum', ['art', 'museum']], ['Oriental Pearl Tower', ['skyscraper', 'viewing deck']]], 
-# [['Venice Beach', ['beach']], ['LACMA', ['art', 'museum']]], 
-# [['São Paulo Zoo', ['zoo']], ['Pátio do Colégio', ['historical site']]], 
-# [['Pyramids of Giza', ['monument', 'historical site']], ['Egyptian Museum', ['museum']]]]
-la_arts = find_attractions("Los Angeles, USA", ['art'])
-print(la_arts)
-
-print()
-
-# >>> point 53
