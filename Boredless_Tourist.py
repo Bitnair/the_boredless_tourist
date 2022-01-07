@@ -34,13 +34,18 @@ def find_attractions(destination, interests):
         
     for attraction in attractions_in_city:
         possible_attraction = attraction
-        attraction_tags = attraction[1]
-        
+        attraction_tags = attraction[1]            
         for interest in interests:
             if interest in attraction_tags:
-                attractions_with_interest.append(possible_attraction[0])
-                
+                attractions_with_interest.append(possible_attraction[0])              
     return attractions_with_interest
+
+def get_attractions_for_traveler(traveler):
+    traveler_destination = traveler[1]
+    traveler_interests = traveler[2]
+    traveler_attractions = find_attractions(traveler_destination, traveler_interests)
+    interests_string = 'Hi ' + traveler[0] + ", we think you'll like these places around "
+    
 
 add_attraction("Los Angeles, USA", ['Venice Beach', ['beach']])
 add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
@@ -55,6 +60,8 @@ add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical sit
 add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 
 
+
+
 ##TEST SECTION
 # These are the attractions included in attractions list
 # [[['the Louvre', ['art', 'museum']], ['Arc de Triomphe', ['historical site', 'monument']]], 
@@ -65,3 +72,6 @@ add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 la_arts = find_attractions("Los Angeles, USA", ['art'])
 print(la_arts)
 
+print()
+
+# >>> point 53

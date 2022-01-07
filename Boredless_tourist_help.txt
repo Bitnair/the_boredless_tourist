@@ -244,24 +244,27 @@ Save, and run your code by typing python3 script.py in the terminal.
 It should have returned the following: ['LACMA', ['art', 'museum']]
 
 49.
-We don’t want to show the tags to our users when we recommend things to them, so let’s just append the name of each attraction.
+We don’t want to show the tags to our users when we recommend things to them, so let’s just append the name of each 
+attraction.
 
-In the body of find_attractions(), find where you append possible_attraction to attractions_with_interest. Change this so you only append possible_attraction[0] which will only append the name.
+In the body of find_attractions(), find where you append possible_attraction to attractions_with_interest. Change 
+this so you only append possible_attraction[0] which will only append the name.
 
 50.
 Save and try rerunning your la_arts test codewWith python3 script.py Printing it now should just print the following:
-
 ['LACMA']
+
 51.
-Looks like we’ve got an interest finder! Let’s save these changes to our git repo! First let’s add script.py to the git index using git add.
+Looks like we’ve got an interest finder! Let’s save these changes to our git repo! First let’s add script.py to the
+ git index using git add.
 
 52.
 Now let’s commit the changes with the message "Added interest finder logic"
 
+
 See The Parts of a City You want to See
 53.
 Now let’s get to the main event, connecting people with the attractions that they are interested in.
-
 Define a function called get_attractions_for_traveler() that takes a single parameter, traveler.
 
 54.
